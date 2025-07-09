@@ -4,7 +4,7 @@ import { faker } from "@faker-js/faker";
 const typeDefs = gql`
 type Product {
 id: ID!
-titile: String!
+title: String!
 price: Float!
 inventory: Int!
 }
@@ -53,4 +53,5 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
 	console.log(`mock graphql server runnning at ${url}`)
 });
+
 
