@@ -2,10 +2,9 @@ import {
 	getIntrospectionQuery,
 	buildClientSchema,
 	type IntrospectionQuery,
-	printSchema,
 } from 'graphql';
 
-const fetchSchema = async (endpoint: string) => {
+export const fetchSchema = async (endpoint: string) => {
 	const introspectionQuery = getIntrospectionQuery();
 	const res = await fetch(endpoint, {
 		method: 'POST',
@@ -23,11 +22,6 @@ const fetchSchema = async (endpoint: string) => {
 	}
 	const clientSchema = buildClientSchema(data as IntrospectionQuery)
 	return clientSchema
-}
-const schema = await fetchSchema("http://localhost:4000")
-if (schema) {
-	console.log(printSchema(schema))
-	schema.
 }
 
 
